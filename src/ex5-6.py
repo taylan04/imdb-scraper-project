@@ -1,5 +1,6 @@
 from ex1 import filmes
 from models import *
+from conexao import session
 
 def criar_objetos(filmes):
     catalog = [Movie(filme['filme'],filme['ano'],filme['avaliacao']) for filme in filmes]
@@ -7,7 +8,14 @@ def criar_objetos(filmes):
     catalog.append(Series("The Last of Us",2023,2,16))
     return catalog
 
+def exibir_objetos_com_str(midias):
+    for midia in midias:
+        print(midia)
+
 midias = criar_objetos(filmes)
+#exibir_objetos_com_str(midias)
 
 for midia in midias:
-    print(midia)
+    adicionar_no_banco(midia)
+
+

@@ -1,11 +1,8 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-import os.path
 from models import *
 
-banco = "data/banco.db"
-diretorio = os.path.dirname(os.path.abspath(__file__))
-banco = os.path.join(diretorio, banco)
+banco = "data/imdb.db"
 
 def conectar():
     try:
