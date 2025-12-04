@@ -33,8 +33,9 @@ def executar_scraping():
     return filmes
 
 filmes = executar_scraping()
-for filme in filmes[:10]:
-    print(f"\n{filme['filme']}({filme['ano']}) - Nota: {filme['avaliacao']}")
+
+'''for filme in filmes[:10]:
+    print(f"\n{filme['filme']}({filme['ano']}) - Nota: {filme['avaliacao']}")'''
 
 
 
