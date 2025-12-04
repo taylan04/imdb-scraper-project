@@ -21,7 +21,7 @@ def obter_dados_filmes(soup):
     for tag in tags:
         nome = tag.find("h3", class_="ipc-title__text").text.strip()
         ano = tag.find("span", class_="sc-b4f120f6-7 hoOxkw cli-title-metadata-item").text.strip()
-        avaliacao = tag.find("span", class_="ipc-rating-star--rating").text.strip()
+        avaliacao = tag.find("span", class_="ipc-rating-star--rating").text.strip().replace(",", ".")
         filmes.append({"filme":nome, "ano":ano, "avaliacao":avaliacao})
 
     return filmes

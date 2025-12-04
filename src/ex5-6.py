@@ -1,6 +1,6 @@
 from ex1 import filmes
 from models import *
-from conexao import session
+from db import *
 
 def criar_objetos(filmes):
     catalog = [Movie(filme['filme'],filme['ano'],filme['avaliacao']) for filme in filmes]

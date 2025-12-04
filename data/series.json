@@ -1,0 +1,14 @@
+[
+    {
+        "titulo":"Stranger Things",
+        "ano":2016,
+        "temporadas":5,
+        "episodios":38
+    },
+    {
+        "titulo":"The Last of Us",
+        "ano":2023,
+        "temporadas":2,
+        "episodios":16
+    }
+]
