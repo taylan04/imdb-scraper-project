@@ -1,4 +1,3 @@
-from ex7_8 import df_filmes
 
 def categoria_textual(nota):
     nota = float(nota)
@@ -11,5 +10,13 @@ def categoria_textual(nota):
     if nota < 7:
         return "Mediano"
 
-df_filmes['categoria'] = df_filmes['nota'].apply(categoria_textual)
-print(df_filmes[['titulo', 'nota', 'categoria']].head(10))
+def adicionar_coluna_categoria(df):
+    df['categoria'] = df['nota'].apply(categoria_textual)
+    return df
+
+# 10
+
+def retornar_resumo(df):
+    return df.groupby(["categoria", "ano"]).size().reset_index(name="quantidade")
+
+

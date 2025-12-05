@@ -9,7 +9,7 @@ class TV():
         self.ano_lancamento = ano_lancamento
     
     def __str__(self):
-        return f"\n{self.titulo}({self.ano_lancamento})"
+        return f"{self.titulo}({self.ano_lancamento})"
 
 class Movie(Base, TV):
     __tablename__ = "movies"
@@ -32,7 +32,7 @@ class Movie(Base, TV):
         }
 
     def __str__(self):
-        return f"\n{self.titulo}({self.ano_lancamento}) - Nota: {self.nota}"
+        return f"{self.titulo}({self.ano_lancamento}) - Nota: {self.nota}"
     
 class Series(Base, TV):
     __tablename__ = "series"
@@ -57,4 +57,4 @@ class Series(Base, TV):
         }
 
     def __str__(self):
-        return f"\n{self.titulo}({self.ano_lancamento}) - Temporadas: {self.temporadas} - Episódios: {self.episodios}"
+        return f"{self.titulo}({self.ano_lancamento}) - Temporadas: {self.temporadas} - Episódios: {self.episodios}"

@@ -2,17 +2,18 @@ from models import *
 from db import *
 import pandas as pd
 
-df_filmes = pd.DataFrame(f.to_dict() for f in consultar_do_banco(Movie))
-df_series = pd.DataFrame(f.to_dict() for f in consultar_do_banco(Series))
+def retornar_df_filmes():
+    df = pd.DataFrame(f.to_dict() for f in consultar_do_banco(Movie))
+    return df
 
-#print(df_filmes.head())
-#print(f"\n{df_series.head()}\n")
+def retornar_df_series():
+    df = pd.DataFrame(f.to_dict() for f in consultar_do_banco(Series))
+    return df
 
 # 8
 
-df_filmes_filtrados = df_filmes.sort_values(by="nota", ascending=False).loc[df_filmes['nota'] > "9"]
-
-#print(df_filmes_filtrados.head())
+def retornar_dataframe_ordenado_e_filtrado(df):
+    return df.sort_values(by="nota", ascending=False).loc[df['nota'] > "9"]
 
 def salvar_em_csv(df, nome):
     try:
@@ -26,10 +27,4 @@ def salvar_em_json(df, nome):
     except Exception as ex:
         print(f"Erro: {ex}")
 
-def salvar_dataframes_em_arquivos():
-    salvar_em_csv(df_filmes_filtrados, "filmes")
-    salvar_em_csv(df_series, "series")
-    salvar_em_json(df_filmes_filtrados, "filmes")
-    salvar_em_json(df_series, "series")
 
-salvar_dataframes_em_arquivos()

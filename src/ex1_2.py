@@ -1,7 +1,11 @@
 from urllib.request import urlopen, Request
 from bs4 import BeautifulSoup
+from config import carregar_config
 
-URL = "https://www.imdb.com/pt/chart/top/"
+config = carregar_config()
+
+URL = config["url_imdb"]
+n_filmes = config["n_filmes"]
 
 def acessar_url(url):
     try:
@@ -18,7 +22,7 @@ def acessar_url(url):
 def obter_dados_filmes(soup):
     filmes = []
     tags = soup.find_all("div", class_="sc-b4f120f6-0 bQhtuJ cli-children")
-    for tag in tags:
+    for tag in tags[:n_filmes]:
         nome = tag.find("h3", class_="ipc-title__text").text.strip()
         ano = tag.find("span", class_="sc-b4f120f6-7 hoOxkw cli-title-metadata-item").text.strip()
         avaliacao = tag.find("span", class_="ipc-rating-star--rating").text.strip().replace(",", ".")
@@ -32,10 +36,6 @@ def executar_scraping():
     filmes = obter_dados_filmes(soup)
     return filmes
 
-filmes = executar_scraping()
-
-'''for filme in filmes[:10]:
-    print(f"\n{filme['filme']}({filme['ano']}) - Nota: {filme['avaliacao']}")'''
 
 
 

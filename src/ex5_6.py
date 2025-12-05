@@ -1,4 +1,3 @@
-from ex1 import filmes
 from models import *
 from db import *
 
@@ -12,10 +11,11 @@ def exibir_objetos_com_str(midias):
     for midia in midias:
         print(midia)
 
-midias = criar_objetos(filmes)
-#exibir_objetos_com_str(midias)
-
-for midia in midias:
-    adicionar_no_banco(midia)
+def adicionar_no_banco_de_dados(midias):
+    filmes = consultar_do_banco(Movie)
+    series = consultar_do_banco(Series)
+    if not filmes and not series:
+        for midia in midias:
+            adicionar_no_banco(midia)
 
 
