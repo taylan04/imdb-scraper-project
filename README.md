@@ -1,7 +1,5 @@
 # Projeto IMDb Scraping e Análise de Dados
 
-## Português
-
 ### Descrição
 
 Este projeto realiza **web scraping**, **modelagem de classes em Python**, **persistência em banco de dados com SQLAlchemy**, **análises com Pandas** e **exportação de dados** a partir da página *IMDb Top 250*.  
@@ -44,24 +42,7 @@ git clone https://github.com/taylan04/imdb-scraper-project.git
 cd imdb-scraper-project
 ```
 
-2. Crie um ambiente virtual:
-```bash
-python -m venv venv
-```
-
-3. Ative o ambiente:
-
-**Windows:**
-```bash
-.env\Scriptsctivate
-```
-
-**Linux/Mac:**
-```bash
-source venv/bin/activate
-```
-
-4. Instale as dependências:
+2. Instale as dependências:
 ```bash
 pip install -r requirements.txt
 ```
